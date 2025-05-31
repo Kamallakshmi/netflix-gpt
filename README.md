@@ -16,6 +16,8 @@
 - Implement Sign In user API
 - Created Redux Store with userSlice
   -Implemented Sign Out
+- Update Profile
+- Fetch from TMDB Movies
 
 # Features
 
