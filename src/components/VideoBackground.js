@@ -5,12 +5,14 @@ import useMovieTrailer from "../hooks/useMovieTrailer";
 const VideoBackground = ({ movieID }) => {
   // fetch trailer video --> need APi call --> need movie id
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
+  console.log(trailerVideo);
   useMovieTrailer(movieID);
 
   return (
-    <div className="w-screen">
+    <div className="w-full">
       <iframe
-        className="w-screen aspect-video"
+        className="w-full aspect-video"
+        style={{ border: "none", maxWidth: "100%" }}
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
