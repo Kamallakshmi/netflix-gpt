@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  console.log("movies:", movies);
+  // console.log("movies:", movies);
 
   if (!movies || !Array.isArray(movies)) {
     return null; // or show a loading spinner or a message

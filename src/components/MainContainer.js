@@ -7,7 +7,7 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   // console.log("Redux movies data:", movies);
   if (!Array.isArray(movies) || movies.length === 0) return null; //[! early return]
-  const mainMovie = movies[1]; // we are playing trailer of 1st movie
+  const mainMovie = movies[2]; // we are playing trailer of 1st movie
   //console.log(mainMovie); // it will throw error because of access null when store not filled with movies
 
   const { original_title, overview, id } = mainMovie;
