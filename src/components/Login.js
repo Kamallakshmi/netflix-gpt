@@ -94,11 +94,17 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_URL} alt="background" />
+        <img
+          className="h-screen object-cover md:h-auto"
+          src={BG_URL}
+          alt="background"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute p-12 bg-black w-1/4 my-36 mx-auto right-0 left-0 text-white bg-opacity-85 rounded-sm"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+        bg-black bg-opacity-80 backdrop-blur-md p-8 md:p-10 w-[90%] max-w-md 
+        rounded-md shadow-lg text-white"
       >
         <h1 className="font-bold text-2xl py-4 ">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -108,29 +114,32 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-2 my-4 w-full bg-gray-700 rounded-sm bg-opacity-85"
+            className="w-full p-3 my-3 rounded-md bg-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-2 my-4 w-full bg-gray-700 rounded-sm bg-opacity-85"
+          className="w-full p-3 my-3 rounded-md bg-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 my-4 w-full bg-gray-700 rounded-sm bg-opacity-85"
+          className="w-full p-3 my-3 rounded-md bg-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
         />
-        <p className="text-red-500 font-bold text-md py-2">{errorMessage}</p>
+        <p className="text-red-500 text-sm font-medium mt-1">{errorMessage}</p>
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-sm"
+          className="w-full py-3 my-6 bg-red-600 hover:bg-red-700 transition-colors duration-200 rounded-md text-white font-semibold"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4" onClick={toggleSignInForm}>
+        <p
+          className="text-center cursor-pointer text-sm hover:underline"
+          onClick={toggleSignInForm}
+        >
           {isSignInForm
             ? "New to Netflix? Sign Up Now"
             : "Already registered. Sign In Now"}

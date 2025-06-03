@@ -5,7 +5,7 @@ import useMovieTrailer from "../hooks/useMovieTrailer";
 const VideoBackground = ({ movieID }) => {
   // fetch trailer video --> need APi call --> need movie id
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
-  console.log(trailerVideo);
+  //console.log(trailerVideo);
   useMovieTrailer(movieID);
 
   return (

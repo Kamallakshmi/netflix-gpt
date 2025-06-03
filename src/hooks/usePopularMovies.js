@@ -1,7 +1,7 @@
 // custom hook is just a function
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addPopularMovies } from "../utils/moviesSlice";
 
@@ -10,6 +10,9 @@ const usePopularMovies = () => {
   // its better to create new custom hook to do this thing it is good practise
   const dispatch = useDispatch();
 
+  // Memoization - To save lots of API call.
+  const popularMovies = useSelector((store) => store.movies.nowPlayingMovies);
+
   const getPopularMovies = async () => {
     //console.log("Dispatching movies...");
     const data = await fetch(
@@ -17,13 +20,13 @@ const usePopularMovies = () => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log(json.results);
+    //console.log(json.results);
     dispatch(addPopularMovies(json.results));
   };
 
   //i will put API call inside useEffect because i call it only once.
   useEffect(() => {
-    getPopularMovies();
+    if (!popularMovies) getPopularMovies();
   }, []);
 };
 
