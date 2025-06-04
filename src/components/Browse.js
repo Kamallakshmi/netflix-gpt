@@ -6,11 +6,13 @@ import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import { useSelector } from "react-redux";
+import useUpcoming from "../hooks/useUpcoming";
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   useNowPlayingMovies();
   usePopularMovies();
+  useUpcoming();
 
   return (
     <div className="overflow-x-hidden w-full">
